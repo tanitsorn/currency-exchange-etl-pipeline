@@ -221,17 +221,21 @@ python -m python.backfill.backfill --days 7
 
 ### ETL Pipeline
 
-Example pipeline execution in the terminal.
+Example execution of the ETL pipeline, showing each stage from data extraction to loading into MySQL with validation checks.
 
 <p align="left">
   <img src="docs/images/etl_pipeline_output.png" width="350"> </p>
 
-Example 
+### MySQL Database
+
+Sample records loaded into the `exchange_rates` table after the ETL process has completed successfully.
 
 <p align="left">
   <img src="docs/images/mysql_output.png" width="450"> </p>
 
-Example daily summary
+### SQL Analytics (Daily Summary)
+
+Example analytical query showing a daily exchange rate summary generated from the loaded dataset.
 
 <p align="left">
   <img src="docs/images/daily_summary_sql.png" width="550"> </p>
