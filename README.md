@@ -238,7 +238,7 @@ Sample records loaded into the `exchange_rates` table after the ETL process has 
 Example analytical query showing a daily exchange rate summary generated from the loaded dataset.
 
 <p align="left">
-  <img src="docs/images/daily_summary_sql.png" width="550"> </p>
+  <img src="docs/images/daily_summary_sql.png" width="580"> </p>
 
 ---
 
