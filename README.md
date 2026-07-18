@@ -229,12 +229,12 @@ Example pipeline execution in the terminal.
 Example 
 
 <p align="left">
-  <img src="docs/images/mysql_output.png" width="500"> </p>
+  <img src="docs/images/mysql_output.png" width="450"> </p>
 
 Example daily summary
 
 <p align="left">
-  <img src="docs/images/daily_summary_sql.png" width="500"> </p>
+  <img src="docs/images/daily_summary_sql.png" width="550"> </p>
 
 ---
 
