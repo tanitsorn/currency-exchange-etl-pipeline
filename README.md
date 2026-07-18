@@ -9,13 +9,13 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 
-A simple **ETL (Extract, Transform, Load) pipeline** that collects daily exchange rates from the Frankfurter API, transforms the data into a structured format, validates data quality, stores the results in MySQL, and performs SQL analytics.
+A complete ETL (Extract, Transform, Load) pipeline that collects daily exchange rates from the Frankfurter API, validates and stores the data in MySQL, and performs SQL analytics for reporting and trend analysis.
 
 ---
 
 ## Project Overview
 
-This project demonstrates a complete ETL workflow using Python and MySQL.
+This project demonstrates a complete ETL workflow built with Python and MySQL for collecting, validating, storing, and analyzing foreign exchange rate data.
 
 The pipeline performs the following tasks:
 
@@ -40,7 +40,7 @@ The pipeline performs the following tasks:
     - Duplicate rows
     - Invalid exchange rates
 - MySQL integration
-- Duplicate load protection (Idempotent loading)
+- Idempotent data loading (prevents duplicate records)
 - SQL analytics queries
 - Logging
 
@@ -144,7 +144,7 @@ Frankfurter API
 
 ## SQL Analytics
 
-The project includes several SQL analysis scripts.
+The project contains analytical SQL queries that demonstrate aggregation, window functions, ranking, volatility analysis, and cross-currency calculations.
 
 | File | Description |
 |------|-------------|
@@ -242,13 +242,75 @@ Example analytical query showing a daily exchange rate summary generated from th
 
 ---
 
+## SQL Analytics Examples
+
+### 01 Currency Strength
+
+Calculates the average, minimum, and maximum exchange rate for each currency across the available dates.
+
+<p align="left">
+  <img src="docs/images/currency_strength_sql.png" width="550"> </p>
+
+---
+
+### 02 Daily Summary
+
+Provides a daily overview of exchange rate statistics, including average, minimum, maximum, and daily spread.
+
+<p align="left">
+  <img src="docs/images/daily_summary_sql.png" width="550"> </p>
+
+---
+
+### 03 Rate Changes
+
+Calculates day-to-day exchange rate changes and percentage changes using the `LAG()` window function.
+
+**Example shown:** EUR exchange rates only (filtered for readability).
+
+<p align="left">
+  <img src="docs/images/rate_changes_sql.png" width="550"> </p>
+
+---
+
+### 04 Cross Currency
+
+Computes the **THB → EUR** cross exchange rate using USD as the common base currency by joining exchange rates from the same date.
+
+<p align="left">
+  <img src="docs/images/cross_currency_sql.png" width="550"> </p>
+
+---
+
+### 05 Currency Volatility
+
+Measures exchange rate volatility for each currency using the standard deviation (`STDDEV`).
+
+<p align="left">
+  <img src="docs/images/currency_volatility_sql.png" width="550"> </p>
+
+---
+
+### 06 Currency Ranking
+
+Ranks currencies by exchange rate for each day and classifies them as **Strongest**, **Weakest**, or **Normal** using SQL window functions.
+
+**Example shown:** first 15 rows of the result.
+
+<p align="left">
+  <img src="docs/images/currency_ranking_sql.png" width="550">
+</p>
+
+---
+
 ## Future Improvements
 
 - Docker support
+- CI/CD pipeline
 - Apache Airflow scheduling
 - Unit testing
-- CI/CD pipeline
 - Power BI / Tableau dashboard
+- Cloud deployment
 - Data warehouse integration
 
 ---
