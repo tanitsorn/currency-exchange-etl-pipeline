@@ -219,15 +219,23 @@ python -m python.backfill.backfill --days 7
 
 ## Example Output
 
-<p align="left">
-  <img src="docs/images/etl_pipeline_output.png" width="300"> </p>
+### ETL Pipeline
+
+Example pipeline execution in the terminal.
 
 <p align="left">
-  <img src="docs/images/mysql_output.png" width="300"> </p>
+  <img src="docs/images/etl_pipeline_output.png" width="350"> </p>
 
-daily summary
+Example 
+
 <p align="left">
-  <img src="docs/images/daily_summary_sql.png" width="300"> </p>
+  <img src="docs/images/mysql_output.png" width="500"> </p>
+
+Example daily summary
+
+<p align="left">
+  <img src="docs/images/daily_summary_sql.png" width="500"> </p>
+
 ---
 
 ## Future Improvements
