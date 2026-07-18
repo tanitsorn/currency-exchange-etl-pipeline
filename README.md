@@ -278,7 +278,7 @@ Calculates day-to-day exchange rate changes and percentage changes using the `LA
 Computes the **THB → EUR** cross exchange rate using USD as the common base currency by joining exchange rates from the same date.
 
 <p align="left">
-  <img src="docs/images/cross_currency_sql.png" width="550"> </p>
+  <img src="docs/images/cross_currency_sql.png" width="500"> </p>
 
 ---
 
@@ -287,7 +287,7 @@ Computes the **THB → EUR** cross exchange rate using USD as the common base cu
 Measures exchange rate volatility for each currency using the standard deviation (`STDDEV`).
 
 <p align="left">
-  <img src="docs/images/currency_volatility_sql.png" width="550"> </p>
+  <img src="docs/images/currency_volatility_sql.png" width="400"> </p>
 
 ---
 
