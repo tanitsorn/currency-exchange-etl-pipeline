@@ -91,6 +91,19 @@ Exchange rates are retrieved from the Frankfurter API.
 
 ---
 
+## Business Questions
+
+The ETL pipeline and SQL analytics are designed to answer business-oriented questions such as:
+
+- Which currency has the highest average exchange rate over the observed period?
+- Which currency experiences the greatest exchange rate volatility?
+- How do exchange rates change from day to day?
+- What is the daily spread between the highest and lowest exchange rates?
+- How can cross-currency exchange rates (e.g., THB → EUR) be calculated?
+- Which currencies are the strongest and weakest on each trading day?
+
+---
+
 ## Project Structure
 
 ```text
@@ -310,6 +323,21 @@ Ranks currencies by exchange rate for each day and classifies them as **Stronges
 <p align="left">
   <img src="docs/images/currency_ranking_sql.png" width="550">
 </p>
+
+---
+
+## Key Learnings
+
+Through this project, I gained hands-on experience with:
+
+- Designing and implementing a complete ETL pipeline in Python
+- Fetching and processing data from REST APIs
+- Transforming JSON data into a structured tabular format
+- Performing data validation before loading into a database
+- Implementing idempotent loading to prevent duplicate records
+- Writing analytical SQL queries using aggregation and window functions
+- Organizing a maintainable project structure with modular Python packages
+- Documenting a data engineering project for reproducibility and collaboration
 
 ---
 
