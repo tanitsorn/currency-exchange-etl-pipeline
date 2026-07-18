@@ -80,6 +80,15 @@ The pipeline performs the following tasks:
 - Window Functions
 - SQL Analytics
 
+--- 
+
+## Data Source
+
+Exchange rates are retrieved from the Frankfurter API.
+
+- Base currency: USD
+- Target currencies: THB, EUR, JPY, GBP, AUD, CAD, CHF, CNY
+
 ---
 
 ## Project Structure
@@ -210,6 +219,7 @@ python -m python.main
 ```
 
 Run historical backfill.
+Example:
 
 ```bash
 python -m python.backfill.backfill --days 7
@@ -233,7 +243,7 @@ Sample records loaded into the `exchange_rates` table after the ETL process has 
 <p align="left">
   <img src="docs/images/mysql_output.png" width="450"> </p>
 
-### SQL Analytics (Daily Summary)
+### SQL Result Example (Daily Summary)
 
 Example analytical query showing a daily exchange rate summary generated from the loaded dataset.
 
@@ -266,7 +276,7 @@ Provides a daily overview of exchange rate statistics, including average, minimu
 
 Calculates day-to-day exchange rate changes and percentage changes using the `LAG()` window function.
 
-**Example shown:** EUR exchange rates only (filtered for readability).
+**Note:** Only EUR results are shown for readability.
 
 <p align="left">
   <img src="docs/images/rate_changes_sql.png" width="550"> </p>
@@ -295,7 +305,7 @@ Measures exchange rate volatility for each currency using the standard deviation
 
 Ranks currencies by exchange rate for each day and classifies them as **Strongest**, **Weakest**, or **Normal** using SQL window functions.
 
-**Example shown:** first 15 rows of the result.
+**Note:** Only the first 15 rows are shown.
 
 <p align="left">
   <img src="docs/images/currency_ranking_sql.png" width="550">
