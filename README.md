@@ -48,6 +48,9 @@ The pipeline performs the following tasks:
 
 ## Architecture Diagram
 
+<p align="left">
+  <img src="docs/images/architecture_currency_exchange_etl_pipeline.png" width="300"> </p>
+
 ---
 
 ## Tech Stack
