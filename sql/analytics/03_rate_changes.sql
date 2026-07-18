@@ -1,3 +1,10 @@
+-- =====================================================
+-- File: 03_rate_changes.sql
+-- Description:
+-- Calculate day-to-day exchange rate changes and
+-- percentage changes using the LAG window function.
+-- =====================================================
+
 WITH previous_rates as (
     SELECT rate_date,
            target_currency,

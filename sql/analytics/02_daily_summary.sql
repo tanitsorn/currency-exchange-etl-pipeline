@@ -1,3 +1,10 @@
+-- =====================================================
+-- File: 02_daily_summary.sql
+-- Description:
+-- Generate daily exchange rate statistics including
+-- average, minimum, maximum, and daily spread.
+-- =====================================================
+
 SELECT rate_date,
        COUNT(*) AS total_currencies,
        ROUND(AVG(exchange_rate) ,5) AS average_rate,
