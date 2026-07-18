@@ -219,32 +219,15 @@ python -m python.backfill.backfill --days 7
 
 ## Example Output
 
-```text
-========== Currency Exchange ETL ==========
+<p align="left">
+  <img src="docs/images/etl_pipeline_output.png" width="300"> </p>
 
-Step 1 : Extract
+<p align="left">
+  <img src="docs/images/mysql_output.png" width="300"> </p>
 
-Fetching exchange rates...
-
-✓ Raw data saved
-
-Step 2 : Transform
-
-✓ Clean data saved
-
-Step 3 : Validation
-
-✓ No missing values
-✓ No duplicate rows
-✓ All exchange rates are valid
-
-Step 4 : Load
-
-✓ Loaded 8 exchange rates into MySQL
-
-ETL pipeline finished!
-```
-
+daily summary
+<p align="left">
+  <img src="docs/images/daily_summary_sql.png" width="300"> </p>
 ---
 
 ## Future Improvements

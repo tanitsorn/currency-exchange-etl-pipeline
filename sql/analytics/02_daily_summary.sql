@@ -8,4 +8,4 @@ SELECT rate_date,
         , 5) AS daily_spread
 FROM exchange_rates
 GROUP BY rate_date
-ORDER BY rate_date
+ORDER BY rate_date;
