@@ -72,9 +72,9 @@ def run_pipeline(target_date=None):
     print("Step 3 : Validation\n")
 
     results = run_step(
-        "Validation",
-        validate_exchange_rates,
-        df,
+    "Validation",
+    validate_exchange_rates,
+    df,
     )
 
     if results["missing_values"] == 0:
@@ -89,11 +89,26 @@ def run_pipeline(target_date=None):
 
     if results["invalid_rates"] == 0:
         print("✓ All exchange rates are valid")
-        logger.info("Validation passed")
     else:
         print(f"✗ Found {results['invalid_rates']} invalid exchange rates")
 
     print()
+
+    # Validation gate
+    validation_failed = (
+        results["missing_values"] > 0
+        or results["duplicate_rows"] > 0
+        or results["invalid_rates"] > 0
+    )
+
+    if validation_failed:
+        logger.error(f"Validation failed: {results}")
+        raise ValueError(
+            f"Validation failed: {results}. "
+            "Pipeline stopped before loading data."
+     )
+
+    logger.info("Validation passed")
 
     # =========================
     # Step 4 : Load

@@ -1,6 +1,7 @@
 import os
+
 import pandas as pd
-from datetime import datetime
+
 
 def transform_exchange_rates(json_path, target_date=None):
     """Transform raw exchange rate JSON into a tabular DataFrame."""
@@ -24,10 +25,7 @@ def transform_exchange_rates(json_path, target_date=None):
 
     os.makedirs("data/clean", exist_ok=True)
 
-    if target_date is None:
-        file_date = datetime.today().strftime("%Y-%m-%d")
-    else:
-        file_date = target_date
+    file_date = df["rate_date"].iloc[0].strftime("%Y-%m-%d")
 
     output_path = f"data/clean/exchange_rates_{file_date}.csv"
 
