@@ -3,32 +3,34 @@
 -- Description:
 -- Rank currencies by exchange rate for each day using
 -- SQL window functions and classify them as
--- Strongest, Weakest, or Normal.
+-- Highest Rate, Lowest Rate, or Normal.
 -- =====================================================
 
 WITH ranking AS (
-    SELECT rate_date,
-           target_currency,
-           exchange_rate,
-           ROW_NUMBER() OVER(
+    SELECT
+        rate_date,
+        target_currency,
+        exchange_rate,
+        ROW_NUMBER() OVER(
             PARTITION BY rate_date
             ORDER BY exchange_rate DESC
-           ) AS strongest_rank,
-           ROW_NUMBER() OVER(
+        ) AS highest_rate_rank,
+        ROW_NUMBER() OVER(
             PARTITION BY rate_date
-            ORDER BY exchange_rate ASC 
-           ) AS weakest_rank
+            ORDER BY exchange_rate ASC
+        ) AS lowest_rate_rank
     FROM exchange_rates
 )
 
-SELECT rate_date,
-       target_currency AS currency,
-       exchange_rate,
-       strongest_rank,
-       CASE
-            WHEN strongest_rank = 1 THEN 'Strongest'
-            WHEN weakest_rank = 1 THEN 'Weakest'
-            ELSE 'Normal'
-            END AS strength_level
+SELECT
+    rate_date,
+    target_currency AS currency,
+    exchange_rate,
+    highest_rate_rank,
+    CASE
+        WHEN highest_rate_rank = 1 THEN 'Highest Rate'
+        WHEN lowest_rate_rank = 1 THEN 'Lowest Rate'
+        ELSE 'Normal'
+    END AS rate_level
 FROM ranking
-ORDER BY rate_date, strongest_rank;
+ORDER BY rate_date, highest_rate_rank;

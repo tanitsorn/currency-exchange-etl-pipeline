@@ -1,7 +1,7 @@
 -- =====================================================
 -- File: 05_currency_volatility.sql
 -- Description:
--- Measure exchange rate volatility for each currency
+-- Measure exchange rate dispersion for each currency
 -- using the standard deviation of exchange rates.
 -- =====================================================
 
