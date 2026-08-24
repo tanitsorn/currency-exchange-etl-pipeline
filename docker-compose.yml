@@ -5,7 +5,7 @@ services:
     container_name: currency-exchange-mysql
 
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
 
     ports:
@@ -15,7 +15,7 @@ services:
       - mysql_data:/var/lib/mysql
 
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD}"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -29,7 +29,7 @@ services:
       DB_PORT: 3306
       DB_NAME: ${DB_NAME}
       DB_USER: root
-      DB_PASSWORD: root
+      DB_PASSWORD: ${DB_PASSWORD}
 
     depends_on:
       mysql:
